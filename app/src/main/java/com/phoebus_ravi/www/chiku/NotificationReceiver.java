@@ -1,15 +1,17 @@
 package com.phoebus_ravi.www.chiku;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.support.v4.app.NotificationCompat;
-
-/**
- * Created by gravi on 5/5/2017.
- */
+import android.support.v4.content.ContextCompat;
 
 public class NotificationReceiver extends BroadcastReceiver {
     @Override
@@ -27,10 +29,21 @@ public class NotificationReceiver extends BroadcastReceiver {
                 .setSmallIcon(R.drawable.flower_background)
                 .setContentTitle("Good Morning Beta")
                 .setContentText("Have a nice day.")
-                .setAutoCancel(true);
+                .setAutoCancel(true)
+                .setColor(ContextCompat.getColor(context,R.color.colorBackground))
+                .setDefaults(Notification.DEFAULT_VIBRATE)
+                .setLargeIcon(largeIcon(context));
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            builder.setPriority(Notification.PRIORITY_HIGH);
+        }
 
         notificationManager.notify(100,builder.build());
+    }
 
-
+    private Bitmap largeIcon(Context context) {
+        Resources res = context.getResources();
+        Bitmap largeIcon = BitmapFactory.decodeResource(res, R.drawable.parents_img2);
+        return largeIcon;
     }
 }

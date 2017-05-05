@@ -1,9 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.phoebus_ravi.www.chiku.RepeatingActivity">
+    tools:context="com.phoebus_ravi.www.chiku.RepeatingActivity"
+    android:orientation="vertical"
+    android:weightSum="100"
+    android:background="@color/colorBackground"
+    android:onClick="onClickedRepeatingActivity"
+    android:clickable="true">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="70"
+        android:src="@drawable/parents_img1"/>
+
+    <TextView
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:fontFamily="casual"
+        android:text="Dearest daughter, just watching you smile makes me realize how beautiful my life is. I love you."/>
+    <TextView
+        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:fontFamily="cursive"
+        android:textStyle="bold"
+        android:text="Keep Smiling..."/>
+
+</LinearLayout>

@@ -22,15 +22,14 @@ public class MainActivity extends AppCompatActivity {
 
         Calendar calendar = Calendar.getInstance();
 
-        calendar.set(Calendar.HOUR_OF_DAY,19);
-        calendar.set(Calendar.MINUTE,14);
-        calendar.set(Calendar.SECOND,31);
+        calendar.set(Calendar.HOUR_OF_DAY,7);
+        calendar.set(Calendar.MINUTE,30);
 
         Intent intent = new Intent(getApplicationContext(), NotificationReceiver.class);
 
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(),100,intent,PendingIntent.FLAG_UPDATE_CURRENT);
 
-        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        AlarmManager alarmManager = (AlarmManager) MainActivity.this.getSystemService(ALARM_SERVICE);
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY,pendingIntent);
 
         Toast.makeText(this,"Thank you !!!",Toast.LENGTH_SHORT).show();
